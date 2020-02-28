@@ -1,0 +1,24 @@
+<div class="row p-3 mt-5 mx-0">
+	<div class="col-12 col-md-6 col-lg-4 p-3">
+		<ng-template [ngIf]="!item.status" [ngIfElse]="none1">
+			<img class="img-fluid" src="../../assets/img/prd/warning.jpg" alt="{{item.name}}">			
+		</ng-template>
+		<ng-template #none1>
+			<img class="img-fluid" src="{{item.pic}}" alt="{{item.name}}">
+		</ng-template>
+	</div>
+	<div class="col-12 col-md-6 col-lg-8 p-3">
+		<h2 class="text-white">Product Details</h2>
+		<div class="text-warning" *ngIf="item">
+			<h3>{{ item.name }}</h3>
+			<h4>{{ item.price | currency}}</h4>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>Magna sit amet purus gravida quis blandit turpis cursus. Molestie at elementum eu facilisis sed odio morbi quis.</p>
+		</div>
+		<ng-template [ngIf]="!item.status" [ngIfElse]="none2">
+			<h4 class="text-white">this one is not available, please come later...</h4>
+		</ng-template>
+		<ng-template #none2>
+			<button class="btn btn-primary" (click)="addToCart(item)" type="button">Buy <i class='fas fa-shopping-cart'></i></button>
+		</ng-template>
+	</div>	
+</div>

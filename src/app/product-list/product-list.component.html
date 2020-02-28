@@ -1,0 +1,29 @@
+<div class="container-fluid">
+	<div class="row p-2 mx-0">
+		<div *ngFor="let itm of items; index as itemId" class="col-12 col-md-4 col-lg-3 p-3">
+			<div class="card bg-dark">
+				<div class="card-body">
+					<h3 class="card-title">
+						<a [routerLink]="['/items', itemId]" class="btn btn-secondary">{{itm.name}}</a>
+					</h3>
+					<h5 class="card-text text-white text-center">
+						Only {{itm.price | currency }}					
+						<span class="w-25">
+							<ng-template [ngIf]="itm.status" [ngIfElse]="none3">
+								<button class="btn btn-primary" (click)="addToCart(itm)" type="button">
+									<i class='fas fa-shopping-cart'></i>
+
+								</button>
+							</ng-template>
+							<ng-template #none3>
+								<button class="btn btn-primary" type="button" (click)="notInCart(itm)" title="Dismissible popover" data-toggle="popover" data-trigger="focus" data-content="Click anywhere in the document to close this popover">:(</button>
+							</ng-template>
+						</span>
+					</h5>
+					<div id="{{itm.iD}}" class="alert-box"><p class="box-text">Product<br>in cart</p></div>
+				</div>
+				<img class="card-img-bottom img-fluid d-none d-sm-block" src="{{itm.pic}}" alt="">
+			</div>
+		</div>
+	</div>	
+</div>

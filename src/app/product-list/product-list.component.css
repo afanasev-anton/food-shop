@@ -1,0 +1,16 @@
+.alert-box {
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	background-color: white;
+	border-radius: 20px 20px 20px 0;
+	display: none;
+	width: 100px;
+	height: 60px;
+}
+
+.box-text {
+	text-align: center;
+	font-weight: 800;
+	color: black;
+}
